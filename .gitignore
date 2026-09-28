@@ -1,0 +1,24 @@
+# Rust / Cargo
+/target/
+**/*.rs.bk
+
+# bootimage / imágenes de arranque
+*.img
+*.iso
+
+# Editor e IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Variables de entorno y secretos
+.env
+.env.*
+
+# Herramientas locales del proyecto
+.atl
