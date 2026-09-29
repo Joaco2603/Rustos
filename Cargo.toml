@@ -16,11 +16,16 @@ panic = "abort"
 panic = "abort"
 
 [dependencies]
-# Activa cada crate en la etapa que lo usa:
+# etapa 1
+uart_16550 = "0.3"
 # etapa 1  bootloader = "0.9"
-# etapa 1  uart_16550 = "0.3"
-# etapa 2  volatile = "0.4"
-# etapa 2  spin = "0.9"
-# etapa 3  x86_64 = "0.15"
+volatile = "0.4"
+spin = "0.9"
+# etapa 3
+x86_64 = "0.15"
 # etapa 4  pic8259 = "0.10"
-# etapa 2+ lazy_static = { version = "1.5", features = ["spin_no_std"] }
+
+
+[package.metadata.bootimage]
+test-args = ["-device", "isa-debug-exit,iobase=0xf4,iosize=0x04"]
+run-command = ["qemu-system-x86_64", "-drive", "format=raw,file={}", "-serial", "stdio"]

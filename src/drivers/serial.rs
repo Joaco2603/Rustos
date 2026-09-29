@@ -2,14 +2,12 @@
 //!
 //! Más fiable que VGA mientras el manejador de pantalla no existe.
 
-// src/drivers/serial.rs
 //! Invariante de serial.rs:
 //! Protege el puerto I/O serie COM1 mediante un Mutex sin spin-yield del SO,
 //! proporcionando una vía segura de depuración por hardware desde cualquier núcleo/contexto.
 
 use uart_16550::SerialPort;
 use spin::Mutex;
-use lazy_static::lazy_static; // O usando spin::Lazy / core::sync::LazyLock en Rust moderno
 
 use core::fmt;
 
